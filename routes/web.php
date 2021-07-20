@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\backend\Setup\StudentClassController;
+use App\Http\Controllers\backend\Setup\StudentGroupController;
 use App\Http\Controllers\backend\Setup\StudentYearController;
 use App\Http\Controllers\backend\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,7 +53,7 @@ Route::prefix('profile')->group(function () {
 // Setup Management Routes
 
 Route::prefix('setups')->group(function () {
-    // Student Class
+    // Student Class Routes
     Route::get('student/class/view', [StudentClassController::class, 'studentClassView'])->name('student.class.view');
     Route::get('student/class/create', [StudentClassController::class, 'studentClassCreate'])->name('student.class.create');
     Route::post('student/class/store', [StudentClassController::class, 'studentClassStore'])->name('student.class.store');
@@ -60,11 +61,19 @@ Route::prefix('setups')->group(function () {
     Route::post('student/class/update/{id}', [StudentClassController::class, 'studentClassUpdate'])->name('student.class.update');
     Route::get('student/class/delete/{id}', [StudentClassController::class, 'studentClassDelete'])->name('student.class.delete');
 
-    // Student Year
+    // Student Year Routes
     Route::get('student/year/view', [StudentYearController::class, 'studentYearView'])->name('student.year.view');
     Route::get('student/year/create', [StudentYearController::class, 'studentYearCreate'])->name('student.year.create');
     Route::post('student/year/store', [StudentYearController::class, 'studentYearStore'])->name('student.year.store');
     Route::get('student/year/edit/{id}', [StudentYearController::class, 'studentYearEdit'])->name('student.year.edit');
     Route::post('student/year/update/{id}', [StudentYearController::class, 'studentYearUpdate'])->name('student.year.update');
     Route::get('student/year/delete/{id}', [StudentYearController::class, 'studentYearDelete'])->name('student.year.delete');
+
+    // Student Group Routes
+    Route::get('student/group/view', [StudentGroupController::class, 'studentGroupView'])->name('student.group.view');
+    Route::get('student/group/create', [StudentGroupController::class, 'studentGroupCreate'])->name('student.group.create');
+    Route::post('student/group/store', [StudentGroupController::class, 'studentGroupStore'])->name('student.group.store');
+    Route::get('student/group/edit/{id}', [StudentGroupController::class, 'studentGroupEdit'])->name('student.group.edit');
+    Route::post('student/group/update/{id}', [StudentGroupController::class, 'studentGroupUpdate'])->name('student.group.update');
+    Route::get('student/group/delete/{id}', [StudentGroupController::class, 'studentGroupDelete'])->name('student.group.delete');
 });
