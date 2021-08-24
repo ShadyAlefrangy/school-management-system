@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function userView()
     {
-        $data['users'] = User::all();
+        $data['users'] = User::where('usertype', 'Admin')->get();
         return view('backend.user.user-view', $data);
     }
 
@@ -28,10 +28,13 @@ class UserController extends Controller
             'name' => 'required'
         ]);
         $user = New User();
+        $code = rand(0000, 9999);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->usertype = $request->usertype;
-        $user->password = bcrypt($request->password);
+        $user->usertype = 'Admin';
+        $user->role = $request->role;
+        $user->code = $code;
+        $user->password = bcrypt($code);
         $user->save();
         $notification = array(
             'message' => 'User Created Successfully',
@@ -56,7 +59,7 @@ class UserController extends Controller
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->usertype = $request->usertype;
+        $user->role = $request->role;
         $user->save();
         $notification = array(
             'message' => 'User Updated Successfully',

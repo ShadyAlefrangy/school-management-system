@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\Setup\StudentClassController;
 use App\Http\Controllers\backend\Setup\StudentGroupController;
 use App\Http\Controllers\backend\Setup\StudentShiftController;
 use App\Http\Controllers\backend\Setup\StudentYearController;
+use App\Http\Controllers\backend\Student\StudentRegistrationController;
 use App\Http\Controllers\backend\UserController;
 use App\Models\SchoolSubject;
 use Illuminate\Support\Facades\Route;
@@ -140,4 +141,18 @@ Route::prefix('setups')->group(function () {
     Route::get('designation/edit/{id}', [DesignationController::class, 'designationEdit'])->name('designation.edit');
     Route::post('designation/update/{id}', [DesignationController::class, 'designationUpdate'])->name('designation.update');
     Route::get('designation/delete/{id}', [DesignationController::class, 'designationDelete'])->name('designation.delete');
+});
+
+// Student Management Routes
+Route::prefix('students')->group(function () {
+    Route::get('registration/view', [StudentRegistrationController::class, 'studentRegistrationView'])->name('student.registration.view');
+    Route::get('registration/create', [StudentRegistrationController::class, 'studentRegistrationCreate'])->name('student.registration.create');
+    Route::post('registration/store', [StudentRegistrationController::class, 'studentRegistrationStore'])->name('student.registration.store');
+    Route::get('year/class/wise', [StudentRegistrationController::class, 'studentYearClassWise'])->name('student.year.class.wise');
+    Route::get('registration/edit/{student_id}', [StudentRegistrationController::class, 'studentRegistrationEdit'])->name('student.registration.edit');
+    Route::post('registration/update/{student_id}', [StudentRegistrationController::class, 'studentRegistrationUpdate'])->name('student.registration.update');
+    Route::get('registration/promotion/{student_id}', [StudentRegistrationController::class, 'studentRegistrationPromotion'])->name('student.registration.promotion');
+    Route::post('registration/promotion/update/{student_id}', [StudentRegistrationController::class, 'studentRegistrationPromotionUpdate'])->name('student.registration.promotion.update');
+    
+  
 });

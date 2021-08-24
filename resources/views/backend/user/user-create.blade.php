@@ -34,22 +34,14 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">						
-                                    <div class="form-group">
-                                        <h5>User Password<span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="password" name="password" class="form-control" required data-validation-required-message="This field is required"> 
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <h5>User Type <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="usertype" id="select" required class="form-control">
-                                                <option value="">Select User Type</option>
+                                            <select name="role" id="role" required class="form-control">
+                                                <option value="">Select Role</option>
                                                 <option value="Admin">Admin</option>
-                                                <option value="User">User</option>
+                                                <option value="Operator">Operator</option>
                                             </select>
                                         </div>
                                     </div>
