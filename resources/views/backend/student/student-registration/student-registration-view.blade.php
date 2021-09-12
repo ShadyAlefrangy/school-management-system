@@ -98,8 +98,9 @@
                               </td>
                               <td>{{ $student->student->code }}</td>
                               <td>
-                                <a href="{{ route('student.registration.edit', $student->student_id) }}" class="btn btn-info mb-5">Edit</a>
-                                <a href="{{ route('student.registration.promotion', $student->student_id) }}" class="btn btn-warning mb-5">Promotion</a>
+                                <a href="{{ route('student.registration.edit', $student->student_id) }}" class="btn btn-info mb-5"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('student.registration.promotion', $student->student_id) }}" class="btn btn-warning mb-5"><i class="fa fa-check"></i></a>
+                                <a href="{{ route('student.registration.details', $student->student_id) }}" target="_blank" class="btn btn-success mb-5"><i class="fa fa-eye"></i></a>
                               </td>
                                 
                           </tr>
@@ -154,8 +155,9 @@
                               </td>
                               <td>{{ $student->student->code }}</td>
                               <td>
-                                <a href="{{ route('student.registration.edit', $student->student_id) }}" class="btn btn-info mb-5">Edit</a>
-                                <a href="{{ route('student.registration.promotion', $student->student_id) }}" class="btn btn-warning mb-5">Promotion</a>
+                                <a href="{{ route('student.registration.edit', $student->student_id) }}" class="btn btn-info mb-5"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('student.registration.promotion', $student->student_id) }}" class="btn btn-warning mb-5"><i class="fa fa-check"></i></a>
+                                <a href="{{ route('student.registration.details', $student->student_id) }}" target="_blank" class="btn btn-success mb-5"><i class="fa fa-eye"></i></a>
                               </td>
                                 
                           </tr>
