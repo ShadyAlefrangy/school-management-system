@@ -42,6 +42,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+Route::group(['middleware' => 'auth'], function() {
+
 // Manage Users Routes
 Route::prefix('users')->group(function () {
     Route::get('view', [UserController::class, 'userView'])->name('user.view');
@@ -180,3 +182,4 @@ Route::prefix('students')->group(function () {
     Route::get('exam/fee/payslip', [ExamFeeController::class, 'examFeePayslip'])->name('student.exam.fee.payslip');
   
 });
+}); // End Middleware
