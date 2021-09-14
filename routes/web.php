@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\Setup\StudentClassController;
 use App\Http\Controllers\backend\Setup\StudentGroupController;
 use App\Http\Controllers\backend\Setup\StudentShiftController;
 use App\Http\Controllers\backend\Setup\StudentYearController;
+use App\Http\Controllers\backend\Student\ExamFeeController;
 use App\Http\Controllers\backend\Student\MonthlyFeeController;
 use App\Http\Controllers\backend\Student\RegistrationFeeController;
 use App\Http\Controllers\backend\Student\StudentRegistrationController;
@@ -172,5 +173,10 @@ Route::prefix('students')->group(function () {
     Route::get('monthly/fee/view', [MonthlyFeeController::class, 'monthlyFeeView'])->name('monthly.fee.view');
     Route::get('monthly/fee/classwisedata', [MonthlyFeeController::class, 'monthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
     Route::get('monthly/fee/payslip', [MonthlyFeeController::class, 'monthlyFeePayslip'])->name('student.monthly.fee.payslip');
+
+    // Exam Fee Routes 
+    Route::get('exam/fee/view', [ExamFeeController::class, 'examFeeView'])->name('exam.fee.view');
+    Route::get('exam/fee/classwisedata', [ExamFeeController::class, 'examFeeClassData'])->name('student.exam.fee.classwise.get');
+    Route::get('exam/fee/payslip', [ExamFeeController::class, 'examFeePayslip'])->name('student.exam.fee.payslip');
   
 });
