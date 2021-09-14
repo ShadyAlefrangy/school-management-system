@@ -30,12 +30,21 @@
 
 <table id="customers">
   <tr>
-    <td><h2>Easy Learning</h2></td>
+    <td>
+        <h2>
+            @php
+                $image_path = '/upload/school.jpg';
+            @endphp
+            <img src="{{ public_path() . $image_path }}" alt="" width="200" height="100">
+        </h2>
+    </td>
+
     <td>
         <h2>Easy School ERP</h2>
         <p>School Address</p>
         <p>Phone: 123456789</p>
         <p>Email: support@easylearning.com</p>
+        <p><b style="color: #04AA6D">Student Monthly Fee</b></p>
     </td>
   </tr>
 </table>
