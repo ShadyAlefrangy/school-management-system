@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\Employee\EmployeeRegistrationController;
 use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\Setup\DesignationController;
@@ -182,4 +183,16 @@ Route::prefix('students')->group(function () {
     Route::get('exam/fee/payslip', [ExamFeeController::class, 'examFeePayslip'])->name('student.exam.fee.payslip');
   
 });
+
+// Employee Management Routes
+Route::prefix('employees')->group(function () {
+    Route::get('registration/view', [EmployeeRegistrationController::class, 'employeeRegistrationView'])->name('employee.registration.view');
+    Route::get('registration/create', [EmployeeRegistrationController::class, 'employeeRegistrationCreate'])->name('employee.registration.create');
+    Route::post('registration/store', [EmployeeRegistrationController::class, 'employeeRegistrationStore'])->name('employee.registration.store');
+    Route::get('registration/edit/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationEdit'])->name('employee.registration.edit');
+    Route::post('registration/update/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationUpdate'])->name('employee.registration.update');
+    Route::get('registration/details/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationDetails'])->name('employee.registration.details');
+
+});
+
 }); // End Middleware
