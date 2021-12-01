@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\Employee\EmployeeRegistrationController;
+use App\Http\Controllers\backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\Setup\DesignationController;
@@ -192,6 +193,15 @@ Route::prefix('employees')->group(function () {
     Route::get('registration/edit/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationEdit'])->name('employee.registration.edit');
     Route::post('registration/update/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationUpdate'])->name('employee.registration.update');
     Route::get('registration/details/{id}', [EmployeeRegistrationController::class, 'employeeRegistrationDetails'])->name('employee.registration.details');
+
+// Employee Salary Routes
+Route::get('salary/view', [EmployeeSalaryController::class, 'employeeSalaryView'])->name('employee.salary.view');
+Route::get('salary/increment/{id}', [EmployeeSalaryController::class, 'employeeSalaryIncrement'])->name('employee.salary.increment');
+Route::post('salary/increment/store/{id}', [EmployeeSalaryController::class, 'employeeSalaryIncrementStore'])->name('employee.salary.increment.store');
+Route::get('salary/details/{id}', [EmployeeSalaryController::class, 'employeeSalaryDetails'])->name('employee.salary.details');
+
+
+
 
 });
 
